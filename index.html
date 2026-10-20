@@ -3,97 +3,669 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ごみはどこへ　思い出しクイズ（考える発展版）</title>
+<title>ごみはどこへ 総復習ステーション（4年 社会）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#1261a0;--deep:#0c4f87;--sky:#eaf6ff;--green:#e8f8ee;--green-ink:#135f37;--yellow:#fff8d8;--pink:#fff0f0;--ink:#17324d;--line:#b9d5e8;--orange:#ef8b27;--gray:#60788c}*{box-sizing:border-box}body{margin:0;background:#f4f8fb;color:var(--ink);font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.7}header{background:linear-gradient(135deg,var(--deep),#1376b4);color:#fff;padding:28px 18px 24px}.wrap{max-width:880px;margin:0 auto}h1{margin:0;font-size:clamp(28px,5vw,45px);letter-spacing:.04em}.sub{margin:5px 0 0;font-size:17px;font-weight:700}main{padding:22px 16px 54px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,32px);box-shadow:0 3px 14px rgba(28,78,111,.11)}.hidden{display:none!important}.intro h2,.finish h2{margin:0 0 10px;color:var(--blue);font-size:27px}.intro p{margin:8px 0}.steps{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}.step{background:var(--yellow);border:1px solid #ead57c;border-radius:999px;padding:5px 10px;font-weight:800}.name-box{margin:17px 0;padding:12px 14px;background:var(--sky);border-radius:10px;font-weight:800}.short-input{font:inherit;font-size:18px;border:2px solid #8cc0df;border-radius:8px;padding:7px 9px;max-width:260px;width:100%;color:var(--ink);background:#fff}.start,.next,.check,.again{border:0;border-radius:11px;color:#fff;font:inherit;font-weight:900;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.12)}.start{display:block;width:min(100%,430px);margin:21px auto 0;background:var(--orange);padding:14px 18px;font-size:20px}.start:hover,.next:hover,.check:hover,.again:hover{filter:brightness(.96);transform:translateY(-1px)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.progress{font-weight:900;color:var(--blue);font-size:17px}.dots{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.dot{width:10px;height:10px;border-radius:50%;background:#c9dbe7}.dot.done{background:#58ab78}.dot.now{background:var(--orange);transform:scale(1.35)}.round{display:inline-block;background:var(--sky);border:1px solid #a9cde7;border-radius:999px;padding:5px 10px;font-weight:900;color:var(--blue)}.round-note{margin:9px 0 14px;padding:9px 12px;background:#f7fbfe;border-left:5px solid var(--blue);border-radius:7px;font-weight:700}.source{margin:10px 0 17px;padding:8px 11px;background:var(--yellow);border:1px solid #ecd777;border-radius:8px;color:#5b470d;font-weight:900}.source.no-book{background:#f4f7f9;border-color:#c6d3dc;color:#506c80}.qno{display:inline-grid;place-items:center;width:40px;height:40px;background:var(--blue);color:#fff;border-radius:50%;font-size:20px;font-weight:900}.kind{margin-left:8px;color:#637b8f;font-size:14px;font-weight:800}.question{font-size:clamp(22px,4vw,29px);line-height:1.45;font-weight:900;margin:16px 0 20px}.choices{display:grid;gap:10px}.choice{width:100%;text-align:left;padding:14px 15px;border:2px solid #bdd5e5;border-radius:11px;background:#fff;color:var(--ink);font:inherit;font-weight:800;font-size:17px;cursor:pointer}.choice:hover:not(:disabled){background:var(--sky);border-color:#62a6d6}.choice.selected{outline:3px solid #82c8ef;border-color:var(--blue)}.choice.correct{background:var(--green);border-color:#57aa79}.choice.wrong{background:var(--pink);border-color:#df7474}.choice:disabled{cursor:default}.input-area{padding:16px;background:#f8fcff;border:2px solid #c1dceb;border-radius:12px}.input-label{display:block;font-weight:900;font-size:18px;margin-bottom:8px}.answer-input{width:100%;font:inherit;font-size:clamp(21px,4vw,27px);font-weight:800;border:2px solid #8cc0df;border-radius:9px;padding:11px 12px;color:var(--ink);background:#fff}.answer-input:focus,.short-input:focus,.writebox:focus{outline:3px solid #82c8ef;border-color:var(--blue)}.auto-status{display:none;margin-top:10px;padding:9px 11px;border-radius:8px;font-weight:900}.auto-status.good{display:block;background:var(--green);color:var(--green-ink);border:1px solid #70bb8f}.auto-status.wait{display:block;background:#fff8e3;color:#735a13;border:1px solid #ebd171}.button-row{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.check{background:var(--orange);padding:11px 17px;font-size:18px}.next{background:var(--blue);padding:11px 17px;font-size:18px}.feedback{display:none;margin-top:18px;padding:13px 15px;background:#f3faff;border-left:6px solid var(--blue);border-radius:8px;font-size:17px}.feedback.show{display:block}.feedback.good{border-left-color:#57aa79;background:var(--green)}.feedback.retry{border-left-color:#df9c2f;background:#fff8e3}.feedback strong{color:var(--blue);font-size:19px}.feedback.good strong{color:var(--green-ink)}.skip{border:2px solid #7990a0;border-radius:11px;background:#fff;color:#465d70;font:inherit;font-weight:900;cursor:pointer;padding:10px 14px;font-size:16px}.skip:hover{background:#f0f4f7}.dot.skip{background:#e5b84f}.say{display:block;margin-top:7px;padding:8px 10px;background:var(--yellow);border-radius:7px;color:#684a13;font-weight:800}.hint{margin-top:15px;background:var(--yellow);border-radius:8px;padding:11px 13px;font-weight:800}.writebox{width:100%;min-height:128px;margin-top:10px;padding:12px;border:2px solid #8cc0df;border-radius:10px;font:inherit;font-size:18px;resize:vertical;color:var(--ink)}.finish{background:var(--green);border:1px solid #8ac7a2}.scorebig{font-size:42px;color:#15633a;font-weight:900;margin:8px 0}.submit-note{padding:11px 13px;background:var(--yellow);border:1px solid #e7cb60;border-radius:9px;font-weight:900;color:#5e4b12}.reflection{margin-top:17px;padding:14px;background:#fff;border:1px solid #9ad0ae;border-radius:11px}.reflection label{font-weight:900;display:block;font-size:18px}.reflection textarea{width:100%;min-height:76px;margin-top:7px;border:2px solid #79ba94;border-radius:8px;padding:10px;font:inherit;font-size:18px;color:var(--ink);background:#fff;resize:vertical}.preview-title{margin:25px 0 9px;color:#15633a;font-size:22px}.submission{background:#fff;border:3px solid #479b68;border-radius:13px;padding:18px;color:#17324d}.submission h3{margin:0 0 10px;color:#15633a;font-size:26px}.submission .subline{margin:0 0 13px;font-weight:800}.submission-row{margin-top:13px;padding:10px 12px;background:#f7fcf8;border-radius:8px;border-left:6px solid #60a87d}.submission-label{display:block;color:#155c35;font-weight:900;font-size:16px}.submission-text{display:block;margin-top:4px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:19px;font-weight:700;min-height:28px;color:#122f22}.placeholder{color:#78918a;font-weight:600;font-size:16px}.again{background:var(--blue);padding:11px 17px;font-size:17px;margin-top:18px}@media(max-width:560px){header{padding:21px 16px}.panel{padding:18px}.question{font-size:23px}.choice{font-size:16px;padding:12px}.topbar{align-items:flex-start;flex-direction:column}.dots{justify-content:flex-start}.button-row{justify-content:stretch}.button-row button{flex:1}.submission-text{font-size:17px}}
+:root{
+  --ink:#1F2A36; --ink2:#4A5866; --paper:#EEF3F1; --card:#FFFFFF; --line:#C9D4D0;
+  --moyasu:#E0632A; --moyasanai:#2F6DB5; --sodai:#8A5A33; --shigen:#2E9A5B;
+  --sticker:#FFD84D; --ok:#1E8A4C; --okbg:#E6F5EC; --ng:#C23B22; --ngbg:#FCEBE6;
+  --hint:#6B4E9B; --hintbg:#F2EDF9;
+  --fs:17px;
+}
+*{box-sizing:border-box}
+html{font-size:var(--fs)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans CJK JP",sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
+h1,h2,h3,.disp{font-family:"Zen Maru Gothic","BIZ UDPGothic","Hiragino Maru Gothic ProN",sans-serif}
+button{font-family:inherit;font-size:1rem;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--moyasanai);outline-offset:2px}
+rt{font-size:.5em;color:var(--ink2);font-weight:400}
+body.noruby rt{display:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* ===== hero ===== */
+.hero{background:var(--ink);color:#fff;padding:26px 0 0;position:relative;overflow:hidden}
+.hero .kicker{display:inline-block;background:var(--sticker);color:var(--ink);font-weight:700;font-size:.82rem;padding:2px 12px;border-radius:999px;letter-spacing:.06em}
+.hero h1{font-size:2.3rem;font-weight:900;margin:10px 0 4px;letter-spacing:.02em;line-height:1.3}
+.hero h1 .hl{color:var(--sticker)}
+.hero p.lead{margin:0 0 18px;color:#D6DEE6;font-size:.98rem;max-width:42em}
+.stripes{display:grid;grid-template-columns:repeat(4,1fr);height:12px}
+.stripes span:nth-child(1){background:var(--moyasu)}
+.stripes span:nth-child(2){background:var(--moyasanai)}
+.stripes span:nth-child(3){background:var(--sodai)}
+.stripes span:nth-child(4){background:var(--shigen)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tool{background:transparent;border:1.5px solid #6D7E8E;color:#fff;border-radius:999px;padding:4px 14px;font-size:.85rem}
+.tool[aria-pressed="true"]{background:var(--sticker);color:var(--ink);border-color:var(--sticker);font-weight:700}
+
+/* ===== tabs ===== */
+nav.tabs{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:2px solid var(--line);box-shadow:0 2px 8px rgba(31,42,54,.06)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:0}
+.tab{flex:0 0 auto;border:0;background:transparent;padding:8px 14px 10px;border-bottom:4px solid transparent;font-weight:700;color:var(--ink2);font-family:"Zen Maru Gothic",sans-serif;font-size:.98rem;white-space:nowrap}
+.tab .n{display:inline-block;min-width:1.6em;height:1.6em;line-height:1.6em;border-radius:50%;background:var(--paper);text-align:center;margin-right:6px;font-size:.8rem}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sticker)}
+.tab[aria-selected="true"] .n{background:var(--sticker)}
+.score{margin-left:auto;align-self:center;font-size:.82rem;color:var(--ink2);white-space:nowrap;padding:0 4px 6px}
+.score b{color:var(--ok);font-size:1rem}
+
+main{padding:22px 0 60px}
+section.panel{display:none}
+section.panel.on{display:block}
+.sechead{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:6px 0 14px}
+.sechead h2{margin:0;font-size:1.6rem;font-weight:900}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;padding:1px 10px;border-radius:4px;background:var(--sticker);color:var(--ink)}
+.tag.test{background:var(--ink);color:#fff}
+.howto{background:var(--card);border-left:6px solid var(--sticker);border-radius:0 10px 10px 0;padding:10px 16px;margin:0 0 18px;font-size:.95rem}
+.howto b{color:var(--ink)}
+
+/* ===== 1 言いかえ ===== */
+.pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:26px}
+.pair{background:var(--card);border-radius:12px;border:1.5px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.pair .row{display:grid;grid-template-columns:1fr 34px 1fr;align-items:stretch}
+.pair .w{padding:10px 12px;font-weight:700;font-size:1.05rem;line-height:1.5}
+.pair .w small{display:block;font-size:.7rem;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.pair .w.t{background:#F7FAF9}
+.pair .w.s{background:var(--ink);color:#fff}
+.pair .w.s small{color:var(--sticker)}
+.pair .eq{display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.2rem;background:var(--sticker)}
+.pair .mean{padding:8px 12px 10px;font-size:.88rem;color:var(--ink2);border-top:1px dashed var(--line);flex:1}
+.pair .mean .pg{float:right;font-size:.75rem;background:var(--paper);border-radius:4px;padding:0 6px;margin-left:6px;color:var(--ink)}
+.pair.moyasu{border-top:6px solid var(--moyasu)}
+.pair.moyasanai{border-top:6px solid var(--moyasanai)}
+.pair.sodai{border-top:6px solid var(--sodai)}
+.pair.shigen{border-top:6px solid var(--shigen)}
+.pair.etc{border-top:6px solid var(--ink2)}
+h3.sub{font-size:1.2rem;margin:26px 0 10px;display:flex;align-items:center;gap:10px}
+h3.sub::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--sticker);border:3px solid var(--ink)}
+
+/* flip cards */
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.flip{perspective:900px;height:150px;border:0;padding:0;background:transparent;text-align:left}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column}
+.flip .f{background:var(--card);border:2px solid var(--ink);justify-content:center;align-items:center;text-align:center}
+.flip .f .word{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:1.3rem;line-height:1.4}
+.flip .f .tap{font-size:.72rem;color:var(--ink2);margin-top:6px}
+.flip .b{background:var(--ink);color:#fff;transform:rotateY(180deg);font-size:.86rem;line-height:1.6;overflow:auto}
+.flip .b b{color:var(--sticker);display:block;font-size:.95rem;margin-bottom:2px}
+.flip .b rt{color:#B9C6D2}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+
+/* ===== quiz common ===== */
+.qlist{display:grid;gap:14px}
+.q{background:var(--card);border-radius:14px;border:1.5px solid var(--line);padding:14px 16px 14px}
+.q .qh{display:flex;gap:10px;align-items:flex-start}
+.q .qn{flex:0 0 auto;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;background:var(--ink);color:#fff;border-radius:8px;min-width:2.2em;text-align:center;padding:0 6px;line-height:1.9}
+.q .qt{flex:1;font-weight:700;font-size:1.04rem}
+.q .meta{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 8px 3em}
+.chip{font-size:.74rem;border-radius:999px;padding:0 10px;background:var(--paper);color:var(--ink);font-weight:700;border:1px solid var(--line)}
+.chip.p{background:#fff8d6;border-color:#E9CF62}
+.say{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:0 10px;font-size:.78rem;line-height:1.9;display:inline-flex;align-items:center;gap:4px;color:var(--ink2)}
+.say svg{width:14px;height:14px}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-left:3em}
+.ch{text-align:left;background:#F7FAF9;border:2px solid var(--line);border-radius:10px;padding:8px 12px;line-height:1.55;font-size:.97rem}
+.ch:hover{border-color:var(--ink2)}
+.ch.ok{background:var(--okbg);border-color:var(--ok);font-weight:700}
+.ch.ng{background:var(--ngbg);border-color:var(--ng);text-decoration:line-through;text-decoration-color:var(--ng)}
+.ch[disabled]{cursor:default}
+.fb{margin:10px 0 0 3em;border-radius:10px;padding:8px 12px;font-size:.93rem;display:none}
+.fb.show{display:block}
+.fb.ok{background:var(--okbg);border-left:5px solid var(--ok)}
+.fb.ng{background:var(--ngbg);border-left:5px solid var(--ng)}
+.fb .mark{font-weight:900;font-family:"Zen Maru Gothic",sans-serif;margin-right:6px}
+.retry{margin:10px 0 0 3em;background:transparent;border:1.5px solid var(--ink2);border-radius:999px;padding:2px 14px;font-size:.85rem;display:none}
+.retry.show{display:inline-block}
+.filter{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.filter button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:2px 12px;font-size:.85rem}
+.filter button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ===== route map ===== */
+.mapbox{background:var(--card);border-radius:16px;border:1.5px solid var(--line);padding:12px;overflow-x:auto}
+.mapbox svg{display:block;min-width:860px;width:100%;height:auto}
+.st{cursor:pointer}
+.st circle{transition:r .15s}
+.st:hover circle.dot,.st:focus circle.dot{stroke-width:7}
+.st.sel circle.dot{fill:var(--sticker)}
+.st:focus{outline:none}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.86rem;margin:10px 4px 0}
+.legend span{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.legend i{display:inline-block;width:26px;height:8px;border-radius:4px}
+.info{margin-top:14px;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;min-height:110px}
+.info h4{margin:0 0 4px;font-family:"Zen Maru Gothic",sans-serif;font-size:1.25rem;color:var(--sticker)}
+.info .alt{display:inline-block;background:#fff;color:var(--ink);font-size:.78rem;font-weight:700;border-radius:4px;padding:0 8px;margin-left:8px;vertical-align:middle}
+.info p{margin:4px 0;font-size:.95rem}
+.info rt{color:#B9C6D2}
+.info .pg{font-size:.78rem;color:#B9C6D2}
+
+/* ===== think ===== */
+.think{background:var(--card);border-radius:16px;border:1.5px solid var(--line);margin-bottom:18px;overflow:hidden}
+.think .th{display:flex;gap:12px;align-items:flex-start;padding:14px 16px 6px}
+.think .th .big{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--sticker);font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:1.3rem;display:flex;align-items:center;justify-content:center;border:2px solid var(--ink)}
+.think .th h3{margin:0;font-size:1.15rem;line-height:1.55}
+.think .body{padding:4px 16px 16px 72px}
+.think .src{font-size:.86rem;color:var(--ink2);margin:2px 0 10px}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.hbtn{border:1.5px solid var(--hint);background:var(--card);color:var(--hint);border-radius:999px;padding:2px 14px;font-size:.86rem;font-weight:700}
+.hbtn[disabled]{opacity:.4;cursor:default}
+.hbtn.ans{border-color:var(--ink);color:var(--ink)}
+.hint{background:var(--hintbg);border-left:5px solid var(--hint);border-radius:0 10px 10px 0;padding:6px 12px;margin:6px 0;font-size:.93rem;display:none}
+.hint.show{display:block}
+.hint b{color:var(--hint)}
+.frames{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 6px}
+.frames button{border:1.5px dashed var(--ink2);background:#F7FAF9;border-radius:8px;padding:2px 10px;font-size:.86rem}
+textarea{width:100%;min-height:92px;border:2px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:1.02rem;line-height:1.7;resize:vertical;background:#FCFDFD;color:var(--ink)}
+.kw{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0;font-size:.86rem}
+.kw .k{border-radius:999px;padding:0 10px;border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:700}
+.kw .k.hit{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.kw .k.hit::before{content:"✓ "}
+.kwmsg{font-size:.86rem;color:var(--ink2)}
+.model{display:none;background:var(--okbg);border:2px solid var(--ok);border-radius:12px;padding:10px 14px;margin-top:10px;font-size:.95rem}
+.model.show{display:block}
+.model b.l{display:inline-block;background:var(--ok);color:#fff;border-radius:4px;padding:0 8px;font-size:.8rem;margin-right:6px}
+.model ul{margin:6px 0 0;padding-left:1.2em}
+
+/* sort games */
+.sorter{display:grid;gap:8px}
+.srow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#F7FAF9;border:1.5px solid var(--line);border-radius:10px;padding:8px 10px}
+.srow .txt{font-weight:700;font-size:.97rem}
+.srow .btns{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.srow .btns button{border:1.5px solid var(--ink2);background:#fff;border-radius:8px;padding:1px 10px;font-size:.88rem;font-weight:700;min-width:3.2em}
+.srow.ok{background:var(--okbg);border-color:var(--ok)}
+.srow.ng{background:var(--ngbg);border-color:var(--ng)}
+.srow .why{grid-column:1/-1;font-size:.84rem;color:var(--ink2);display:none}
+.srow.ok .why,.srow.ng .why{display:block}
+.srow .btns button.pick{background:var(--ink);color:#fff}
+.era{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 12px}
+.era div{background:#F7FAF9;border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.86rem}
+.era div b{display:block;font-family:"Zen Maru Gothic",sans-serif;font-size:1rem}
+.multi .ch[aria-pressed="true"]{border-color:var(--ink);background:#fff8d6}
+.check{margin:10px 0 0;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:4px 18px;font-weight:700}
+select{font-family:inherit;font-size:1rem;padding:4px 8px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+
+footer{font-size:.8rem;color:var(--ink2);border-top:1.5px solid var(--line);padding:14px 0 30px}
+
+@media (max-width:640px){
+  :root{--fs:16px}
+  .hero h1{font-size:1.7rem}
+  .choices,.fb,.retry,.q .meta{margin-left:0}
+  .think .body{padding-left:16px}
+  .era{grid-template-columns:1fr}
+  .srow{grid-template-columns:1fr}
+  .srow .btns{justify-content:flex-start}
+}
+@media print{nav.tabs,.tools{display:none}section.panel{display:block !important;break-before:page}.hero{background:#fff;color:var(--ink)}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1>ごみはどこへ　思い出しクイズ</h1><p class="sub">考えて、くらべて、理由を見つけよう。教科書を開く問題はページを見て答えよう。</p></div></header>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">4年 社会　けんこうなくらしとまちづくり</span>
+    <h1>ごみは<span class="hl">どこへ</span>　総復習ステーション</h1>
+    <p class="lead">教科書（28〜49ページ）を ひらきながら 使います。ことばの 言いかえ → ごみのゆくえ → 一問一答 → 考える問題 の じゅんに すすめよう。</p>
+    <div class="tools">
+      <button class="tool" id="tRuby" aria-pressed="true">ふりがな</button>
+      <button class="tool" id="tBig" aria-pressed="false">文字を大きく</button>
+      <button class="tool" id="tSay" aria-pressed="true">読み上げボタン</button>
+    </div>
+  </div>
+  <div class="stripes" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+</header>
+
+<nav class="tabs" aria-label="学習メニュー">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-p="p1"><span class="n">1</span>ことばの言いかえ</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p2"><span class="n">2</span>ごみのゆくえ線</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p3"><span class="n">3</span>一問一答</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p4"><span class="n">4</span>考える問題</button>
+    <span class="score" aria-live="polite">できた：<b id="sc">0</b> / <span id="scAll">0</span></span>
+  </div>
+</nav>
+
 <main class="wrap">
-<section id="intro" class="panel intro">
-<h2>ごみ<ruby>探偵<rt>たんてい</rt></ruby>クイズのやり方</h2>
-<p>問題には二つの種類があります。<strong>「まず自分で考える」</strong>問題と、<strong>「教科書を開く」</strong>問題です。教科書を開く問題では、ページの写真・図・グラフを根拠にして答えましょう。</p>
-<div class="steps"><span class="step">① 考える</span><span class="step">② 教科書を確かめる</span><span class="step">③ 答え・理由を比べる</span><span class="step">④ わからなければ保留</span><span class="step">⑤ つぎへ進む</span></div>
-<div class="name-box">名前（まとめの画面に表示されます）：<br><input id="studentName" class="short-input" placeholder="名前を入力" maxlength="30" oninput="syncSubmission()"></div>
-<p>文字を入力する問題は、正しい言葉を入力すると<strong>自動で正答</strong>になります。分からない問題は、<strong>「わからない／あとで見直す」</strong>を押せば、止まらずにつぎへ進めます。</p>
-<button class="start" onclick="startQuiz()">クイズをはじめる</button>
+
+<!-- ================= 1 ================= -->
+<section class="panel on" id="p1" role="tabpanel">
+  <div class="sechead"><h2>ことばの言いかえ</h2><span class="tag">テストと教科書で ことばが ちがう！</span></div>
+  <div class="howto"><b>教科書</b>（大田区の れい）と <b>テスト</b>（横浜市の れい）では、<b>同じものなのに 名前が ちがう</b> ことが あります。左が教科書、右がテストの ことば。<b>どちらで 出ても 答えられるように</b> しよう。</div>
+
+  <div class="pairs" id="pairs"></div>
+
+  <h3 class="sub">言いかえクイズ</h3>
+  <div class="qlist" id="quizA"></div>
+
+  <h3 class="sub">キーワードカード（タップで うらがえる）</h3>
+  <div class="flips" id="flips"></div>
 </section>
 
-<section id="quiz" class="panel hidden" aria-live="polite">
-<div class="topbar"><div class="progress" id="progress"></div><div class="dots" id="dots"></div></div>
-<div id="round" class="round"></div><p id="roundNote" class="round-note"></p><div id="source" class="source"></div>
-<div><span id="qno" class="qno"></span><span id="kind" class="kind"></span></div><p id="question" class="question"></p>
-<div id="choices" class="choices"></div><div id="inputArea" class="input-area hidden"></div><div id="feedback" class="feedback"></div>
-<div class="button-row"><button id="skip" class="skip" onclick="skipQuestion()">わからない／あとで見直す</button><button id="check" class="check" onclick="checkAnswer()">答えを確かめる</button><button id="next" class="next hidden" onclick="nextQuestion()">つぎの問題へ</button></div>
+<!-- ================= 2 ================= -->
+<section class="panel" id="p2" role="tabpanel">
+  <div class="sechead"><h2>ごみのゆくえ線</h2><span class="tag">教科書43ページの図</span></div>
+  <div class="howto">ごみの しゅるいごとに、<b>電車の 路線</b>のように 進む道が ちがいます。<b>駅（○）を タップ</b>すると、そこで 何を しているかが 出ます。教科書43ページの 図と くらべてみよう。</div>
+  <div class="mapbox">
+    <svg id="map" viewBox="0 0 1100 470" role="img" aria-label="ごみの種類ごとの処理の流れを示す路線図"></svg>
+    <div class="legend">
+      <span><i style="background:var(--moyasu)"></i>もやすごみ線</span>
+      <span><i style="background:var(--moyasanai)"></i>もやさないごみ線</span>
+      <span><i style="background:var(--sodai)"></i>粗大ごみ線</span>
+      <span><i style="background:var(--shigen)"></i>資源線</span>
+    </div>
+  </div>
+  <div class="info" id="info" aria-live="polite"><h4>駅を えらんでね</h4><p>ごみが 家を 出てから、どこへ 行くのかを たどろう。</p></div>
+
+  <h3 class="sub">このごみ、どの線に のる？ どこへ 行く？</h3>
+  <div class="qlist" id="quizB"></div>
 </section>
 
-<section id="reviewGate" class="panel hidden"><h2>あとで見直す問題</h2><p>分からなくて保留にした問題が、<strong id="reviewCount">0</strong>問あります。</p><p>今は先にまとめへ進んでも大丈夫です。見直すなら、教科書を開いてから始めよう。</p><div class="button-row"><button class="skip" onclick="showFinish()">そのまままとめへ</button><button class="next" onclick="startReview()">見直しをはじめる</button></div></section>
-
-<section id="finish" class="panel finish hidden">
-<h2>おわりのふり返り</h2><p>29問のクイズを終えました。</p><div class="scorebig"><span id="finalScore">0</span> / 29 問</div><p id="skipSummary" class="submit-note hidden"></p><p>正解数だけでなく、教科書のどこを見れば分かるかが大切です。自分の言葉でまとめよう。</p>
-<div class="reflection"><label for="planText">① 明日から自分が続ける3R作戦</label><textarea id="planText" placeholder="例：水とうを使う。これはリデュースで、ペットボトルなどの使い捨てのごみが減るから。" oninput="syncSubmission()"></textarea></div>
-<div class="reflection"><label for="canExplain">② 説明できるようになったこと</label><textarea id="canExplain" placeholder="例：燃やしたごみの灰は、最終処分場へ行くこと。" oninput="syncSubmission()"></textarea></div>
-<div class="reflection"><label for="wantKnow">③ 次に教科書で確かめたいこと</label><textarea id="wantKnow" placeholder="例：最終処分場を長く使うために、家で何ができるかな。" oninput="syncSubmission()"></textarea></div>
-<h3 class="preview-title">提出用プレビュー</h3><p class="submit-note">この枠が画面に入るようにスクリーンショットを撮り、ロイロの提出箱に出しましょう。入力した文字は下にも大きく表示されます。</p>
-<div class="submission"><h3>ごみはどこへ　学習のまとめ</h3><p class="subline">名前：<span id="previewName" class="submission-text inline-text"><span class="placeholder">（名前を入力）</span></span>　　クイズ：<span id="previewScore">0</span> / 29 問</p><div class="submission-row"><span class="submission-label">① 自分が続ける3R作戦</span><span id="previewPlan" class="submission-text"><span class="placeholder">（入力した文字がここに表示されます）</span></span></div><div class="submission-row"><span class="submission-label">② 説明できるようになったこと</span><span id="previewExplain" class="submission-text"><span class="placeholder">（入力した文字がここに表示されます）</span></span></div><div class="submission-row"><span class="submission-label">③ 次に教科書で確かめたいこと</span><span id="previewWant" class="submission-text"><span class="placeholder">（入力した文字がここに表示されます）</span></span></div></div>
-<button class="again" onclick="restartQuiz()">もう一度、はじめからやる</button>
+<!-- ================= 3 ================= -->
+<section class="panel" id="p3" role="tabpanel">
+  <div class="sechead"><h2>一問一答</h2><span class="tag">教科書の ページ じゅん</span></div>
+  <div class="howto">わからない ときは、<b>黄色の ページ</b>を ひらいて 答えを さがそう。まちがえても「もう一回」で やり直せます。</div>
+  <div class="filter" id="filt"></div>
+  <div class="qlist" id="quizC"></div>
 </section>
+
+<!-- ================= 4 ================= -->
+<section class="panel" id="p4" role="tabpanel">
+  <div class="sechead"><h2>考える問題</h2><span class="tag test">テストのうら面に 対応</span></div>
+  <div class="howto"><b>考え方の じゅん番：</b>① 教科書の どこを 見るか ヒント1 → ② 使う ことば ヒント2 → ③ 書き出し ヒント3 → ④ 自分で 書く → ⑤ キーワードが 入ったか チェック → ⑥ 答えの れいと くらべる。<br><b>「〜から。」「〜ため。」で 文を おわらせる</b> のが 理由を 書くときの コツ。</div>
+  <div id="thinks"></div>
+</section>
+
+<footer class="wrap">
+  もとにした資料：4年社会 教科書「ごみはどこへ」28〜49ページ（東京都大田区の事例）／単元テスト「ごみはどこへ」（横浜市の事例）。地域によって ごみの 分け方や しせつの 名前は ちがいます。
+</footer>
 </main>
+
 <script>
-const rounds={1:{name:'ラウンド1　くらしと収集',note:'学校や家庭から出るごみと、集める仕事を結び付けます。'},2:{name:'ラウンド2　清掃工場と最終処分場',note:'施設名だけでなく、どのような働きがあるかを考えます。'},3:{name:'ラウンド3　資源物とごみの道',note:'ごみの種類ごとに、行き先と処理のしかたをたどります。'},4:{name:'ラウンド4　教科書を見て思い出す',note:'教科書の図・写真・言葉から、学んだことを確かめます。難しい計算はありません。'},5:{name:'ラウンド5　3Rとみんなの取組',note:'生活の場面に当てはめて、3Rと協力の意味を考えます。'}};
-const questions=[
-{r:1,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書30〜31ページのイラストを開いて答える問題です。',q:'びん・かん・ペットボトルなどは、何として生かすために分けて出す？',c:['ア　資源','イ　灰','ウ　けむり','エ　土だけ'],a:0,e:'びん・かん・ペットボトルなどは、資源として生かすために分けて出します。'},
-{r:1,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書30〜31ページを開いて答える問題です。',q:'ごみを種類ごとに分けて出す理由として、最もよい説明はどれ？',c:['ア　ごみ袋をできるだけ重くするため','イ　集積所に長く置いておくため','ウ　種類によって、処理のしかたや資源にする方法が違うため','エ　収集車がごみを見えにくくするため'],a:2,e:'ごみは、燃やす・燃やさない・資源にするなど、種類によってその後の行き先や処理方法が違います。'},
-{r:1,t:'input',k:'入力して自動判定',src:'教科書42〜43ページのごみの流れも見て答える問題です。',q:'家庭で分けて出したごみを、収集車が来る前に集めておく場所の名前を入力しよう。',prompt:'場所の名前を入力：',answers:['集積所','しゅうせきじょ'],e:'家庭で出したごみは、集積所に集められてから、収集車で運ばれます。',s:'「家庭→集積所→収集車。」'},
-{r:1,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書34〜35ページを開いて答える問題です。',q:'収集する人の仕事を助け、町をきれいに保つために、最もよい行動はどれ？',c:['ア　決められた種類・曜日・場所を守って出す','イ　収集車が来た後に、好きな場所へ出す','ウ　何のごみか分からない物も一つの袋に入れる','エ　集積所の前の道路に広げて置く'],a:0,e:'出し方の決まりを守ると、収集する人が安全に仕事をしやすくなり、地域もきれいに保てます。'},
-{r:1,t:'mc',k:'仕事の工夫・4択',src:'教科書34〜35ページを開いて、収集車の仕事を確かめる問題です。',q:'収集車がごみを種類ごとに集める工夫に、最も関係が深いものはどれ？',c:['ア　集めた後のごみをすべて同じ場所に置くこと','イ　ごみの種類に合った処理施設へ運びやすくすること','ウ　ごみを毎日必ず燃やすこと','エ　収集車をできるだけ小さくすること'],a:1,e:'ごみを種類ごとに集めることは、その後の処理や資源化をしやすくする工夫です。'},
-{r:2,t:'input',k:'入力して自動判定',src:'教科書36〜37ページの清掃工場の図を見て答える問題です。',q:'清掃工場で、収集車から運ばれたごみを一時的にためる場所の名前を入力しよう。',prompt:'施設の中の場所の名前を入力：',answers:['ごみピット','ごみぴっと'],e:'ごみピットは、収集車から運ばれたごみを一時的にためる場所です。'},
-{r:2,t:'mc',k:'流れをくらべる・4択',src:'教科書36〜37ページの清掃工場の図を見て答える問題です。',q:'清掃工場の中で、ごみが進む順番として正しいのはどれ？',c:['ア　ごみピット→クレーン→焼却炉（しょうきゃくろ）','イ　ごみピット→焼却炉→クレーン','ウ　クレーン→ごみピット→焼却炉','エ　ごみピット→中央制御室→焼却炉'],a:0,e:'ごみはピットにためられ、クレーンでつかまれて、焼却炉へ入れられます。前後の働きを結び付けて覚えましょう。'},
-{r:2,t:'input',k:'入力して自動判定',src:'教科書36〜37ページの写真・図を見て答える問題です。',q:'機械の動きや温度などを見守り、安全に工場を動かす部屋の名前を入力しよう。',prompt:'部屋の名前を入力：',answers:['中央制御室','ちゅうおうせいぎょしつ'],e:'中央制御室では、機械のようすや温度などを見守り、清掃工場を安全に動かします。'},
-{r:2,t:'mc',k:'目的を考える・4択',src:'教科書36〜37ページを開いて答える問題です。',q:'ガスを煙突から出す前に、有害（ゆうがい）な物質を取りのぞく一番大きな理由はどれ？',c:['ア　ガスをすべて電気に変えるため','イ　周りの環境や人の安全を守るため','ウ　ごみの色を見えなくするため','エ　ごみピットにごみをためやすくするため'],a:1,e:'排出する前に有害な物質を取りのぞくのは、環境や人の安全を守るための工夫です。'},
-{r:2,t:'input',k:'入力して自動判定',src:'教科書36〜37ページを開いて答える問題です。',q:'ごみを燃やしたときの熱でできる蒸気（じょうき）の力を利用して、何をつくる？',prompt:'ひらがなでも漢字でも入力：',answers:['電気','でんき'],e:'燃やした熱でできる蒸気の力を利用して、電気をつくる工夫があります。'},
-{r:2,t:'mc',k:'理由を考える・4択',src:'教科書38〜39ページを開いて答える問題です。',q:'ごみを燃やして量を減らすことが大切なのは、主にどのようなことにつながるから？',c:['ア　収集車がごみを集めなくてよくなるから','イ　最終処分場に埋め立てる量を減らせるから','ウ　資源物を分別しなくてよくなるから','エ　灰が全く出なくなるから'],a:1,e:'燃やすことで量は減りますが、灰は残ります。埋め立てる量を減らし、最終処分場を長く使うことにつながります。'},
-{r:2,t:'input',k:'入力して自動判定',src:'教科書38〜39ページを開いて答える問題です。',q:'ごみを燃やして残った灰（はい）は、どこへ運ばれて埋め立てられる？',prompt:'施設の名前を入力：',answers:['最終処分場','さいしゅうしょぶんじょう'],e:'燃やした後に残った灰は、最終処分場へ運ばれて埋め立てられます。'},
-{r:2,t:'mc',k:'働きをくらべる・4択',src:'教科書38〜39ページを開いて答える問題です。',q:'最終処分場についての説明として、正しいものはどれ？',c:['ア　集めた資源物を新しい製品にする場所','イ　燃やす前のごみをクレーンで運ぶ場所','ウ　燃やした後に残る灰などを埋め立てる場所','エ　ごみを分別して各家庭へ返す場所'],a:2,e:'最終処分場は、燃やした後に残る灰などを埋め立てる場所です。だからこそ、できるだけ長く使う工夫が必要です。'},
-{r:3,t:'mc',k:'施設をくらべる・4択',src:'教科書42〜43ページの全体の流れを見て答える問題です。',q:'大きな家具などの粗大ごみを細かくし、分けやすくする施設はどれ？',c:['ア　不燃ごみ処理センター','イ　粗大ごみはさい処理施設','ウ　最終処分場','エ　ごみピット'],a:1,e:'粗大ごみはさい処理施設では、大きなごみを細かくし、材料ごとに分けやすくします。'},
-{r:3,t:'input',k:'入力して自動判定',src:'教科書40〜41ページの資源物の流れを見て答える問題です。',q:'資源物を原料にして新しい製品をつくる工場の名前を入力しよう。',prompt:'工場の名前を入力：',answers:['再生工場','さいせいこうじょう'],e:'資源物は再生工場で原料として使われ、新しい製品に生まれ変わります。'},
-{r:3,t:'mc',k:'働きをくらべる・4択',src:'教科書40〜41ページの資源物の流れを見て答える問題です。',q:'リサイクルセンターの主な仕事として、最も適切なものはどれ？',c:['ア　資源物を集め、種類ごとに分けて次の工程へ送る','イ　燃やした灰を地面に埋める','ウ　粗大ごみをそのまま新しい家具にする','エ　家庭から出る生ごみだけを燃やす'],a:0,e:'リサイクルセンターでは、びん・かん・ペットボトルなどを集めたり分けたりして、資源として生かしやすくします。'},
-{r:3,t:'mc',k:'全体の流れ・4択',src:'教科書42〜43ページの全体の流れを見て答える問題です。',q:'「ペットボトル」の流れとして、最もよいものはどれ？',c:['ア　家庭→集積所→収集車→清掃工場→最終処分場','イ　家庭→集積所→収集車→リサイクルセンター→再生工場','ウ　家庭→ごみピット→クレーン→焼却炉','エ　家庭→粗大ごみはさい処理施設→最終処分場'],a:1,e:'ペットボトルは資源物として集められ、リサイクルセンターなどを経て再生工場で新しい製品の原料になります。'},
-{r:3,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書42〜43ページの全体の流れを見て答える問題です。',q:'不燃ごみの行き先はどれ？',c:['ア　不燃ごみ処理センター','イ　粗大ごみはさい処理施設','ウ　ごみピット','エ　再生工場'],a:0,e:'教科書42〜43ページの図では、不燃ごみは不燃ごみ処理センターへ運ばれます。'},
-{r:4,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書40〜41ページを開いて答える問題です。',q:'びん・かん・ペットボトルなどを、正しく分けて出すと、何として生かすことができる？',c:['ア　資源','イ　灰','ウ　けむり','エ　土だけ'],a:0,e:'びん・かん・ペットボトルなどは、資源として集められ、新しい製品の原料になります。'},
-{r:4,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの3Rの説明を開いて答える問題です。',q:'使えるものをすぐに捨てず、何度も使うことを何という？',c:['ア　リデュース','イ　リユース','ウ　リサイクル','エ　焼却（しょうきゃく）'],a:1,e:'リユースは、物を形のままくり返し使うことです。'},
-{r:4,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの左側にある三つの棒グラフを開いて答える問題です。',q:'三つの棒グラフのうち、一番上のグラフの見出しはどれ？',c:['ア　もやすごみの量','イ　資源集団回収量','ウ　資源物の量','エ　店頭回収量'],a:0,e:'教科書44〜45ページの一番上の棒グラフは、「もやすごみの量」を表しています。資料は、まず見出しを確かめます。'},
-{r:4,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書40〜41ページの資源ごみのゆくえを開いて答える問題です。',q:'資源物を新しい製品の原料として使う工場はどれ？',c:['ア　再生工場','イ　ごみピット','ウ　焼却炉','エ　最終処分場'],a:0,e:'再生工場では、資源物を新しい製品の原料として使います。'},
-{r:4,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの3Rの説明を開いて答える問題です。',q:'「ごみそのものを減らす」考え方は、3Rのどれ？',c:['ア　リデュース','イ　リユース','ウ　リサイクル','エ　焼却（しょうきゃく）'],a:0,e:'リデュースは、ごみそのものを減らす考え方です。'},
-{r:4,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの3Rの説明を開いて答える問題です。',q:'使い終わった物を原料にして、新しい製品をつくることはどれ？',c:['ア　リデュース','イ　リユース','ウ　リサイクル','エ　最終処分'],a:2,e:'リサイクルは、使い終わった物を資源として利用し、新しい製品をつくることです。'},
-{r:5,t:'mc',k:'取組をくらべる・4択',src:'教科書46〜47ページの写真と説明を開いて答える問題です。',q:'「店頭回収ボックス」と「リサイクルショップ」の取組の組合せとして正しいものはどれ？',c:['ア　店頭回収ボックス＝資源物を集める／リサイクルショップ＝使える物を次の人につなぐ','イ　店頭回収ボックス＝使える物を次の人につなぐ／リサイクルショップ＝資源物を集める','ウ　店頭回収ボックス＝灰を埋め立てる／リサイクルショップ＝ごみを燃やす','エ　店頭回収ボックス＝粗大ごみを細かくする／リサイクルショップ＝ガスをきれいにする'],a:0,e:'店頭回収ボックスでは資源物を集めます。リサイクルショップは、まだ使える物を次の人につなぐ取組です。'},
-{r:5,t:'mc',k:'役割を考える・4択',src:'教科書46〜49ページを開いて答える問題です。',q:'ごみを減らしたり資源として生かしたりするために、最もよい考えはどれ？',c:['ア　行政だけが努力すればよい','イ　家庭だけが分別すればよい','ウ　店・地域・行政・家庭が、それぞれ協力する','エ　ごみを出す人は、何もしなくてよい'],a:2,e:'ごみの問題には、行政、店、地域の人、家庭など、多くの人の協力が必要です。'},
-{r:5,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの3Rの説明を見て答える問題です。',q:'「ごみそのものを減らす」考え方の説明はどれ？',c:['ア　ごみを減らす','イ　くり返し使う','ウ　資源として利用する','エ　灰を埋め立てる'],a:0,e:'リデュースは、ごみそのものを減らす考え方です。'},
-{r:5,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの3Rの説明を見て答える問題です。',q:'「物をくり返し使う」考え方の説明はどれ？',c:['ア　ごみを減らす','イ　くり返し使う','ウ　資源として利用する','エ　灰を埋め立てる'],a:1,e:'リユースは、物をくり返し使う考え方です。'},
-{r:5,t:'mc',k:'教科書を見て選ぶ・4択',src:'教科書44〜45ページの3Rの説明を見て答える問題です。',q:'「資源として利用する」考え方の説明はどれ？',c:['ア　ごみを減らす','イ　くり返し使う','ウ　資源として利用する','エ　灰を埋め立てる'],a:2,e:'リサイクルは、使い終わった物を資源として利用する考え方です。'}
+/* ===================== データ ===================== */
+const PAIRS=[
+ {c:"moyasu",t:"うめ立て処分場",s:"最終処分場",m:"もやしたあとの灰や、くだいた もやさないごみを、さいごに うめる場所。",p:"p.38"},
+ {c:"moyasu",t:"清掃工場",s:"焼却工場・ごみ焼却工場",m:"もやすごみを 高い温度で もやして 灰にする しせつ。",p:"p.36"},
+ {c:"moyasu",t:"ごみバンカ",s:"ごみピット",m:"収集車が 運んできた ごみを ためておく 大きな あな。",p:"p.36"},
+ {c:"moyasu",t:"焼きゃくろ",s:"焼却炉",m:"ごみを もやす ところ。800℃いじょうの 高い温度で もやす。",p:"p.36"},
+ {c:"moyasu",t:"中央せいぎょ室",s:"中央管制室",m:"モニターで 工場全体を 24時間 見守る へや。",p:"p.37"},
+ {c:"moyasu",t:"もやすごみ",s:"可燃ごみ・もえるごみ",m:"生ごみ・紙くずなど。大田区では 週2回 収集。",p:"p.31"},
+ {c:"moyasanai",t:"もやさないごみ",s:"不燃ごみ・もえないごみ",m:"ガラス・せともの・金属など。不燃ごみ処理センターで くだく。",p:"p.31"},
+ {c:"sodai",t:"粗大ごみ",s:"大型ごみ",m:"家具や 自転車など 大きな ごみ。電話で 申しこみ、処理券を はって 出す。",p:"p.31"},
+ {c:"shigen",t:"資源",s:"資源物・資源ごみ",m:"紙類・びん・かん・ペットボトルなど、原料に もどして また 使えるもの。",p:"p.31・40"},
+ {c:"shigen",t:"回収しせつ",s:"リサイクルセンター",m:"資源を 手作業で 材料ごとに 仕分ける しせつ。",p:"p.40"},
+ {c:"etc",t:"区（大田区）",s:"市（横浜市）",m:"ごみを 集めて 処理する 仕事を しているところ。テストは 横浜市の れい。",p:"p.34"},
+ {c:"etc",t:"3R",s:"ヨコハマ3R夢（スリム）",m:"リデュース・リユース・リサイクル。横浜市では こう よんでいる。",p:"p.45"}
 ];
-let current=0,selected=null,answered=false,score=0,skipped=new Set(),mode='normal',reviewQueue=[],reviewPos=0;
-function normalize(v){return String(v).toLowerCase().replace(/[\s　・、。,.，．「」『』（）()]/g,'').replace(/ｒ/g,'r').replace(/ｅ/g,'e').replace(/ｕ/g,'u').replace(/ｓ/g,'s');}
-function validInput(q,v){const text=normalize(v);if(q.t==='inputAll')return q.required.every(w=>text.includes(normalize(w)));return q.answers.some(a=>text.includes(normalize(a)));}
-function startQuiz(){document.getElementById('intro').classList.add('hidden');document.getElementById('finish').classList.add('hidden');document.getElementById('reviewGate').classList.add('hidden');document.getElementById('quiz').classList.remove('hidden');current=0;score=0;skipped=new Set();mode='normal';reviewQueue=[];reviewPos=0;render();}
-function makeDots(){const box=document.getElementById('dots');box.innerHTML='';for(let i=0;i<questions.length;i++){const d=document.createElement('span');let state='';if(i===current)state=' now';else if(skipped.has(i))state=' skip';else if(mode==='normal'&&i<current)state=' done';d.className='dot'+state;box.appendChild(d);}}
-function progressText(){return mode==='review'?'見直し '+(reviewPos+1)+' / '+reviewQueue.length+'（もとの問題 '+(current+1)+'）　できた：'+score+' / '+questions.length:'問題 '+(current+1)+' / '+questions.length+'　　できた：'+score+' / '+questions.length;}
-function render(){const q=questions[current];selected=null;answered=false;document.getElementById('progress').textContent=progressText();makeDots();document.getElementById('round').textContent=rounds[q.r].name;document.getElementById('roundNote').textContent=rounds[q.r].note;const source=document.getElementById('source');source.textContent=q.src;source.className='source'+(q.src.startsWith('まず')?' no-book':'');document.getElementById('qno').textContent=current+1;document.getElementById('kind').textContent=q.k;document.getElementById('question').textContent=q.q;const cs=document.getElementById('choices'),ia=document.getElementById('inputArea');cs.innerHTML='';ia.innerHTML='';ia.classList.add('hidden');if(q.t==='mc'){q.c.forEach((text,i)=>{const b=document.createElement('button');b.className='choice';b.textContent=text;b.onclick=()=>selectChoice(i);cs.appendChild(b);});}else{ia.classList.remove('hidden');ia.innerHTML='<label class="input-label" for="answerInput">'+q.prompt+'</label><input id="answerInput" class="answer-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入力" oninput="autoJudgeInput()"><div id="autoStatus" class="auto-status"></div>';setTimeout(()=>document.getElementById('answerInput').focus(),80);}const fb=document.getElementById('feedback');fb.className='feedback';fb.innerHTML='';document.getElementById('check').classList.remove('hidden');const skip=document.getElementById('skip');skip.classList.remove('hidden');skip.textContent=mode==='review'?'このまま次へ':'わからない／あとで見直す';const next=document.getElementById('next');next.classList.add('hidden');next.textContent=(mode==='normal'&&current===questions.length-1)?'見直し・まとめへ':'つぎの問題へ';window.scrollTo({top:0,behavior:'smooth'});}
-function selectChoice(i){if(answered)return;selected=i;document.querySelectorAll('.choice').forEach((b,j)=>b.classList.toggle('selected',j===i));}
-function autoJudgeInput(){const q=questions[current],input=document.getElementById('answerInput'),status=document.getElementById('autoStatus');if(!input||answered)return;if(validInput(q,input.value)){answered=true;score++;skipped.delete(current);input.disabled=true;status.className='auto-status good';status.textContent='正解！　教科書と同じ大切な言葉を見つけました。';showFeedback(q,true);document.getElementById('check').classList.add('hidden');document.getElementById('skip').classList.add('hidden');document.getElementById('next').classList.remove('hidden');updateProgress();}else if(input.value.trim()){status.className='auto-status wait';status.textContent='分からなければ、下の「あとで見直す」を押してつぎへ進んでも大丈夫です。';}else{status.className='auto-status';}}
-function checkAnswer(){const q=questions[current];if(q.t==='mc'){if(selected===null){alert('答えを選ぶか、「わからない／あとで見直す」を押してつぎへ進みましょう。');return;}answered=true;const buttons=document.querySelectorAll('.choice');buttons.forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add('correct');if(i===selected&&i!==q.a)b.classList.add('wrong');});const correct=selected===q.a;if(correct){score++;skipped.delete(current);}showFeedback(q,correct);document.getElementById('check').classList.add('hidden');document.getElementById('skip').classList.add('hidden');document.getElementById('next').classList.remove('hidden');updateProgress();return;}const input=document.getElementById('answerInput');if(!input.value.trim()){alert('入力するか、「わからない／あとで見直す」を押してつぎへ進みましょう。');return;}if(!validInput(q,input.value)){const fb=document.getElementById('feedback');fb.className='feedback show retry';fb.innerHTML='<strong>もう一度、教科書を見てみよう。</strong><br>今は分からなければ、「わからない／あとで見直す」を押して先に進んでも大丈夫です。';return;}autoJudgeInput();}
-function showFeedback(q,correct){const fb=document.getElementById('feedback');fb.className='feedback show '+(correct?'good':'retry');if(correct){fb.innerHTML='<strong>正解！</strong><br>'+q.e+(q.s?'<span class="say">言ってみよう：'+q.s+'</span>':'');}else{fb.innerHTML='<strong>答えを確かめよう。</strong><br>'+q.e+(q.s?'<span class="say">言ってみよう：'+q.s+'</span>':'');}}
-function updateProgress(){document.getElementById('progress').textContent=progressText();makeDots();}
-function moveForward(){if(mode==='review'){reviewPos++;if(reviewPos>=reviewQueue.length){showFinish();}else{current=reviewQueue[reviewPos];render();}}else{current++;if(current>=questions.length){showReviewGate();}else{render();}}}
-function nextQuestion(){moveForward();}
-function skipQuestion(){skipped.add(current);moveForward();}
-function showReviewGate(){document.getElementById('quiz').classList.add('hidden');if(skipped.size===0){showFinish();return;}document.getElementById('reviewCount').textContent=skipped.size;document.getElementById('reviewGate').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
-function startReview(){reviewQueue=Array.from(skipped).sort((a,b)=>a-b);reviewPos=0;mode='review';current=reviewQueue[0];document.getElementById('reviewGate').classList.add('hidden');document.getElementById('quiz').classList.remove('hidden');render();}
-function showFinish(){document.getElementById('quiz').classList.add('hidden');document.getElementById('reviewGate').classList.add('hidden');document.getElementById('finish').classList.remove('hidden');document.getElementById('finalScore').textContent=score;document.getElementById('previewScore').textContent=score;const summary=document.getElementById('skipSummary');if(skipped.size){summary.textContent='「あとで見直す」にした問題が '+skipped.size+' 問あります。提出後に、教科書を開いてもう一度見てみよう。';summary.classList.remove('hidden');}else{summary.classList.add('hidden');}syncSubmission();window.scrollTo({top:0,behavior:'smooth'});}
-function mirror(from,to){const val=document.getElementById(from).value.trim(),target=document.getElementById(to);target.textContent=val||'';if(!val){const s=document.createElement('span');s.className='placeholder';s.textContent='（入力した文字がここに表示されます）';target.appendChild(s);}}
-function syncSubmission(){const name=document.getElementById('studentName').value.trim(),pn=document.getElementById('previewName');pn.textContent=name||'';if(!name){const s=document.createElement('span');s.className='placeholder';s.textContent='（名前を入力）';pn.appendChild(s);}if(document.getElementById('planText')){mirror('planText','previewPlan');mirror('canExplain','previewExplain');mirror('wantKnow','previewWant');}}
-function restartQuiz(){document.getElementById('planText').value='';document.getElementById('canExplain').value='';document.getElementById('wantKnow').value='';document.getElementById('quiz').classList.add('hidden');document.getElementById('reviewGate').classList.add('hidden');document.getElementById('finish').classList.add('hidden');document.getElementById('intro').classList.remove('hidden');score=0;skipped=new Set();mode='normal';syncSubmission();window.scrollTo({top:0,behavior:'smooth'});}
+const QA=[
+ {q:"テストに「最終処分場」と出た。教科書では 何という？",c:["うめ立て処分場","清掃工場","回収しせつ","不燃ごみ処理センター"],a:0,e:"灰や くだいた もやさないごみを さいごに うめる場所。教科書38ページ。"},
+ {q:"テストに「ごみピット」と出た。教科書では 何という？",c:["焼きゃくろ","ごみバンカ","えんとつ","中央せいぎょ室"],a:1,e:"収集車が 運んできた ごみを ためておく ところ。教科書36ページの 図。"},
+ {q:"テストに「中央管制室」と出た。教科書では 何という？",c:["クレーン操作室","中央せいぎょ室","区役所","回収しせつ"],a:1,e:"モニターで 工場全体を 24時間 見守る へや。教科書37ページ 写真エ。"},
+ {q:"テストに「焼却工場」と出た。教科書では 何という？",c:["清掃工場","うめ立て処分場","回収しせつ","原料に変える工場"],a:0,e:"もやすごみを もやす しせつ。教科書36〜37ページ。"},
+ {q:"テストに「資源物」と出た。教科書では 何という？",c:["粗大ごみ","資源","もやさないごみ","有害物質"],a:1,e:"紙類・びん・かん・ペットボトルなど。教科書31・40ページ。"},
+ {q:"教科書の「うめ立て処分場」。テストでは 何と書いてある？",c:["焼却工場","最終処分場","ごみピット","リサイクル工場"],a:1,e:"テスト表面（2）「もやして残った灰は どこへ？」の答えは「最終処分場」。教科書の ことばなら「うめ立て処分場」。"},
+ {q:"「不燃ごみ」と同じ いみの ことばは？",c:["もやすごみ","もやさないごみ","粗大ごみ","資源"],a:1,e:"「不燃」＝もえない。だから もやさないごみ。反対は「可燃ごみ」＝もやすごみ。"},
+ {q:"「大型ごみ」と同じ いみの ことばは？",c:["粗大ごみ","もやさないごみ","資源","生ごみ"],a:0,e:"家具や 自転車など。教科書31ページ。"}
+];
+const FLIPS=[
+ ["ごみの分別","ごみを しゅるいごとに 分けて 収集に 出すこと。","p.31"],
+ ["清掃工場","もやすごみを 高い温度で もやして 灰にする。熱で 発電も する。","p.36〜37"],
+ ["うめ立て処分場","灰や くだいた もやさないごみを うめる。土を かぶせて においや ちらばりを ふせぐ。","p.38"],
+ ["有害物質","体や かんきょうに 悪いもの。清掃工場では ガスや 水から 取りのぞく。","p.36"],
+ ["資源","原料に もどして ふたたび 使えるもの。","p.40"],
+ ["リサイクル","資源を 原料に 変えて、新しい 製品を つくること。","p.41"],
+ ["3R","リデュース（へらす）・リユース（くり返し使う）・リサイクル（原料に して再利用）。","p.45"],
+ ["家電リサイクル法","テレビ・冷蔵庫・せんたく機・エアコンを 店などが 回収し リサイクルする 国の きまり。費用は 出した人が はらう。","p.41"],
+ ["集団回収","自治会が 古新聞や 古着などを 集めて 業者に わたす。回収量に おうじて 区から お金が はらわれる。","p.47"],
+ ["フードドライブ","使われずに あまっている 食品を 寄付してもらい、しえんが 必要な人に 届ける 活動。","p.47"],
+ ["マイバッグ","買い物のときに 持っていく ふくろ。レジぶくろの ごみを へらす（リデュース）。","p.46"],
+ ["自治会","同じ 地域に 住む人が、くらしやすい まちづくりの ために つくった 団体。","p.47"]
+];
+/* 路線図の駅 */
+const ST={
+ home1:{n:"家・ごみ集積所",p:"p.30〜31・34",d:"中身が 見える ふくろに 入れ、決められた 曜日に 出す。生ごみは 水を よく 切る。"},
+ car:{n:"収集車",p:"p.34",d:"大田区では 1日に 180台いじょう。早く、残さず 集めるため、通る道・時間・回数が 決められている。二人で すばやく 集める。"},
+ seiso:{n:"清掃工場",alt:"テスト：焼却工場",p:"p.36〜37",d:"ごみバンカ（ごみピット）に ためて、クレーンで 焼きゃくろへ。高い温度で もやして 灰に すると、かさが へり 衛生的。熱で 発電。ガスは 有害物質を 取りのぞいてから えんとつへ。"},
+ hai:{n:"もやしたあとの灰",p:"p.36・38",d:"一部は セメントの 原料に なり、残りは うめ立て処分場へ 運ばれる。"},
+ cement:{n:"セメントの原料",p:"p.38〜39",d:"灰を セメントの 原料に すると、うめる量が へり、処分場を 長く 使い続けられる。"},
+ umetate:{n:"うめ立て処分場",alt:"テスト：最終処分場",p:"p.38〜39",d:"ごみの「終点」。東京港の 中に ある。うめたごみに 土を かぶせて、ちらばりや においを ふせぐ。このまま うめ続けると いっぱいに なり、新しい 場所が ない・費用が かかる という 問題が ある。"},
+ home2:{n:"家・ごみ集積所",p:"p.31",d:"われ物や 刃物は 新聞紙で つつんで 出す。大田区では 2週に1回。"},
+ funen:{n:"不燃ごみ処理センター",p:"p.39・43",d:"もやさないごみを くだく。まざっていた もやすごみや 資源は 取り出す。もやさずに 残ったものは うめ立て処分場へ。"},
+ home3:{n:"電話で申しこみ",p:"p.31",d:"粗大ごみは 電話で 申しこんで 処理券を 買い、ごみに はって 出す（有料）。"},
+ sodai:{n:"粗大ごみ処理しせつ",p:"p.40・43",d:"機械で 細かく くだいて 分ける。もやすものは 清掃工場へ、もやさないものは うめ立て処分場へ、鉄や アルミは 原料に 変える 工場へ。"},
+ home4:{n:"家・回収箱",p:"p.31・46",d:"キャップや ラベルを はずし、中を あらって 出す。スーパーの 回収箱にも 出せる。"},
+ kaishu:{n:"回収しせつ",alt:"リサイクルセンター",p:"p.40",d:"ベルトコンベヤで 流れてくる 資源を、係の人が 手作業で 仕分ける。よごれたものや 資源でないものを 取りのぞく。"},
+ genryo:{n:"原料に変える工場",p:"p.41",d:"都内や 他県の 工場で 原料に なる。びん→カレット、アルミかん→アルミ、ペットボトル→細かい つぶ、紙パック→パルプ。"},
+ seihin:{n:"新しい製品",p:"p.41",d:"びん・ガラス製品、アルミかん、鉄製品、プラスチック製品、トイレットペーパーなどに 生まれ変わる。これが リサイクル。"}
+};
+const QB=[
+ {q:"食べのこしの 生ごみは、どこで 処理される？",c:["清掃工場","回収しせつ","不燃ごみ処理センター","原料に変える工場"],a:0,e:"もやすごみ線。清掃工場で もやす。水を よく 切って 出すのが 大切（p.37）。"},
+ {q:"清掃工場で もやしたあとの 灰は どうなる？",c:["セメントの原料に なったり、うめ立て処分場に うめられたりする","すべて 新しい ペットボトルに なる","海に すてる","家に もどす"],a:0,e:"p.36・38。テストでは「最終処分場」と 書いてある。"},
+ {q:"われた ガラスの コップは、どの 道を 通る？",c:["もやさないごみ → 不燃ごみ処理センターで くだく → うめ立て処分場","もやすごみ → 清掃工場","資源 → 回収しせつ","粗大ごみ → 処理券"],a:0,e:"もやさないごみ線。新聞紙で つつんで 出す（p.31）。"},
+ {q:"中を あらった ペットボトルは、どこへ？",c:["回収しせつ → 原料に変える工場 → プラスチック製品","清掃工場 → 灰","うめ立て処分場","不燃ごみ処理センター"],a:0,e:"資源線。キャップや ラベルを はずして あらう（p.31・41）。"},
+ {q:"使わなく なった 自転車は どう出す？",c:["電話で 申しこみ、処理券を はって 粗大ごみとして 出す","もやすごみの 日に 出す","スーパーの 回収箱に 入れる","うめ立て処分場に 自分で 運ぶ"],a:0,e:"粗大ごみ線。くだいた あと、鉄は 原料に 変える 工場へ（p.31・40）。"},
+ {q:"ごみの道が 最後に たどりつく「終点」は？",c:["うめ立て処分場（最終処分場）","清掃工場","収集車","区役所"],a:0,e:"もやす・もやさない・粗大の 3つの 線が 集まる。だから いっぱいに ならないように することが 大切（p.39）。"}
+];
+const QC=[
+ {p:"p.31",q:"ごみを しゅるいごとに 分けて 収集に 出すことを 何という？",c:["ごみの分別","ごみの収集","リサイクル","集団回収"],a:0,e:"教科書31ページ「キーワード」。"},
+ {p:"p.31",q:"大田区で、収集の 回数が いちばん 多い ごみは？",c:["もやすごみ（週2回）","もやさないごみ","びん・かん・ペットボトル","粗大ごみ"],a:0,e:"生ごみが 毎日 出るから、もやすごみの 収集が いちばん 多い。"},
+ {p:"p.31",q:"粗大ごみを 出すときの きまりは？",c:["電話で 申しこみ、処理券を 買って はる","中身が 見える ふくろに 入れる","毎日 出してよい","スーパーの 回収箱に 入れる"],a:0,e:"有料で、事前に 申しこむ。"},
+ {p:"p.34",q:"ごみを 分別して 収集する いちばんの 理由は？",c:["ごみの しゅるいによって、処理の しかたが ちがうから","収集車の 数を へらすため","分けると ごみが 軽くなるから","きまりだから 理由は ない"],a:0,e:"甘利さんの話「ごみの種類によって、処理のしかたがちがうため、分別をしているのです」。"},
+ {p:"p.34",q:"収集車が 通る道や 時間・回数が 決められているのは なぜ？",c:["早く、残さず 集めるため","収集車を ゆっくり 走らせるため","ごみを ふやすため","車の じゅんばんを 決めるだけ"],a:0,e:"大田区では 1日に 180台いじょうの 収集車で 集めている。"},
+ {p:"p.35",q:"約70年前、ごみは どのように 処理していた？",c:["庭や 空き地で もやしたり、あなを ほって うめたりした","トラックで 集めた","清掃工場で もやした","リサイクルした"],a:0,e:"そのため 土の中や 地下水が よごれることが あった。"},
+ {p:"p.35",q:"区が 収集車で 集めて 処理する しくみを つくったのは なぜ？",c:["人口が ふえ、ごみの量も しゅるいも ふえて、人々の 健康が そこなわれたから","ごみが へったから","庭が せまく なったから","トラックが 好きだったから"],a:0,e:"甘利さんの話（35ページ）。安全で 衛生的な 方法で 処理するため。"},
+ {p:"p.37",q:"清掃工場で ごみを もやして 灰に すると、よいことは？",c:["かさが へり、処理しやすく 衛生的に なる","重さが ふえる","資源に なる","においが 強く なる"],a:0,e:"高橋さんの話（37ページ）。"},
+ {p:"p.36",q:"清掃工場では、ごみを もやした 熱を 何に 使っている？",c:["発電や 温水プール","冷蔵庫","水道の 水","収集車の ガソリン"],a:0,e:"ボイラで 水を 蒸気に 変えて 発電。テストでは「蒸気の力で 電気を つくる」。"},
+ {p:"p.36",q:"えんとつから ガスを 出す前に 何を する？",c:["有害物質を 取りのぞく","色を つける","水を まぜる","冷やして かためる"],a:0,e:"テスト表面（3）にも 出た ことば「有害」。"},
+ {p:"p.37",q:"生ごみの 水分を よく 切って 出すのは なぜ？",c:["水分が 多いと 温度が 上がらず、エネルギーが 多く 必要に なるから","重くて 持てないから","虫が 来るから","きまりで 決まっているから"],a:0,e:"高橋さんの話。家で できる 協力。"},
+ {p:"p.38",q:"大田区の うめ立て処分場は どこに ある？",c:["東京港の 中","山の 中","区役所の 地下","学校の 近く"],a:0,e:"23区には うめ立てられる 土地が ないため、海に つくられた。"},
+ {p:"p.38",q:"うめた ごみに 土を かぶせるのは なぜ？",c:["ごみが 散らばったり、においが 出たりするのを ふせぐため","早く くさらせるため","土地を 低くするため","見えなく するだけ"],a:0,e:"まわりの かんきょうへの くふう。"},
+ {p:"p.39",q:"うめ立て処分場が いっぱいに なると 起きる 問題は？",c:["新しい 処分場を つくる 場所が ない・費用が かかる","ごみが へる","電気が つくれる","何も 問題は ない"],a:0,e:"だから 処理するだけでなく、ごみを へらす くふうが 必要。"},
+ {p:"p.40",q:"資源の 回収しせつでは 何を している？",c:["手作業で よごれたものや 資源でないものを 取りのぞき、材料ごとに 仕分ける","ごみを もやす","灰を うめる","新しい 製品を 売る"],a:0,e:"だから 家で きちんと 分別し、あらって 出すことが 大切。"},
+ {p:"p.41",q:"紙パックは リサイクルすると 何に なる？",c:["トイレットペーパー","アルミかん","びん","セメント"],a:0,e:"教科書41ページ「リサイクルの流れ」。"},
+ {p:"p.41",q:"テレビ・冷蔵庫・せんたく機・エアコンを リサイクルする 国の きまりは？",c:["家電リサイクル法","3R","ごみの分別","フードドライブ"],a:0,e:"店などが 回収し、費用は ごみを 出した人が はらう。"},
+ {p:"p.44",q:"大田区の「区民一人当たりが 1年間に 出す ごみの量」は どう 変わった？",c:["へってきている","ふえ続けている","変わらない","0に なった"],a:0,e:"グラフア。区民が 分別や ごみを へらす 取り組みに 協力した おかげ。"},
+ {p:"p.45",q:"資源の 処理に かかる 費用が ふえた わけは？",c:["資源の しゅるいが ふえ、かんきょうを 守りながら 処理するように なったから","資源の 回収量が とても ふえたから","収集車が ふえたから","工場が なくなったから"],a:0,e:"張替さんの話「資源の回収量は、あまりふえていない」。"},
+ {p:"p.45",q:"3Rの うち「ごみ そのものを へらす」のは？",c:["リデュース","リユース","リサイクル","リペア"],a:0,e:"リユース＝くり返し 使う、リサイクル＝原料に 変えて 再利用。"},
+ {p:"p.46",q:"スーパーが 入り口に 資源の 回収箱を 置くのは なぜ？",c:["区で 決められた 日・時間・場所 いがいにも、多くの 資源を 集めるため","店の ごみを へらすため","お客を ふやすため だけ","区の きまりだから"],a:0,e:"店は 区に 協力している。"},
+ {p:"p.47",q:"フードドライブとは どんな 活動？",c:["使われずに あまった 食品を 寄付してもらい、しえんが 必要な人に 届ける","食べ残しを 集めて もやす","食品を セメントに する","スーパーで 安く 売る"],a:0,e:"食品を むだに しない ＋ 地域の 助け合い。"}
+];
+
+/* ===================== ふりがな ===================== */
+const RUBY=[["最終処分場","さいしゅうしょぶんじょう"],["処分場","しょぶんじょう"],["清掃工場","せいそうこうじょう"],["焼却炉","しょうきゃくろ"],["焼却","しょうきゃく"],["管制室","かんせいしつ"],["有害物質","ゆうがいぶっしつ"],["資源","しげん"],["粗大","そだい"],["分別","ぶんべつ"],["収集","しゅうしゅう"],["原料","げんりょう"],["衛生的","えいせいてき"],["自治会","じちかい"],["製品","せいひん"],["費用","ひよう"],["地下水","ちかすい"],["回収","かいしゅう"],["不燃","ふねん"],["可燃","かねん"],["蒸気","じょうき"],["発電","はつでん"],["寄付","きふ"],["処理","しょり"],["集積所","しゅうせきじょ"],["業者","ぎょうしゃ"],["冷蔵庫","れいぞうこ"],["人口","じんこう"],["健康","けんこう"],["環境","かんきょう"]];
+const RX=new RegExp(RUBY.map(r=>r[0]).join("|"),"g");
+const RMAP=Object.fromEntries(RUBY);
+function addRuby(root){
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){
+    const p=n.parentElement; if(!p) return NodeFilter.FILTER_REJECT;
+    if(p.closest("ruby,svg,textarea,script,style,select,option,.noR")) return NodeFilter.FILTER_REJECT;
+    RX.lastIndex=0; return RX.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+  const list=[]; while(w.nextNode()) list.push(w.currentNode);
+  list.forEach(n=>{
+    const frag=document.createDocumentFragment(); let last=0; const s=n.nodeValue; RX.lastIndex=0; let m;
+    while((m=RX.exec(s))){
+      if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+      const r=document.createElement("ruby"); r.textContent=m[0];
+      const rt=document.createElement("rt"); rt.textContent=RMAP[m[0]]; r.appendChild(rt); frag.appendChild(r);
+      last=m.index+m[0].length;
+    }
+    if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+    n.parentNode.replaceChild(frag,n);
+  });
+}
+function plain(el){const c=el.cloneNode(true);c.querySelectorAll("rt,.say").forEach(x=>x.remove());return c.textContent.replace(/\s+/g," ").trim();}
+
+/* ===================== 読み上げ ===================== */
+const SPK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>';
+function sayBtn(getEl){
+  const b=document.createElement("button"); b.className="say"; b.type="button"; b.innerHTML=SPK+"読む";
+  b.addEventListener("click",()=>{ if(!("speechSynthesis" in window)) return;
+    speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(plain(getEl()).replace(/〜/g,"")); u.lang="ja-JP"; u.rate=.9; speechSynthesis.speak(u);});
+  return b;
+}
+
+/* ===================== スコア ===================== */
+const done=new Set(); let total=0;
+function upd(){document.getElementById("sc").textContent=done.size;document.getElementById("scAll").textContent=total;}
+
+/* ===================== 選択クイズ ===================== */
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
+function buildQuiz(host,data,prefix,showPage){
+  data.forEach((d,i)=>{
+    total++; const id=prefix+i;
+    const q=document.createElement("div"); q.className="q"; if(d.p) q.dataset.page=d.p;
+    q.innerHTML=`<div class="qh"><span class="qn">${i+1}</span><div class="qt">${d.q}</div></div><div class="meta"></div><div class="choices"></div><div class="fb"></div><button class="retry" type="button">もう一回</button>`;
+    const meta=q.querySelector(".meta");
+    if(showPage&&d.p){const c=document.createElement("span");c.className="chip p";c.textContent="教科書 "+d.p;meta.appendChild(c);}
+    meta.appendChild(sayBtn(()=>q.querySelector(".qt")));
+    const box=q.querySelector(".choices"), fb=q.querySelector(".fb"), rt=q.querySelector(".retry");
+    function render(){
+      box.innerHTML=""; fb.className="fb"; rt.className="retry";
+      shuffle(d.c.map((t,k)=>({t,k}))).forEach(o=>{
+        const b=document.createElement("button"); b.type="button"; b.className="ch"; b.textContent=o.t;
+        b.addEventListener("click",()=>{
+          box.querySelectorAll(".ch").forEach(x=>x.disabled=true);
+          if(o.k===d.a){b.classList.add("ok");fb.className="fb show ok";fb.innerHTML=`<span class="mark">せいかい！</span>${d.e}`;done.add(id);}
+          else{b.classList.add("ng");box.querySelectorAll(".ch").forEach(x=>{if(x.textContent===d.c[d.a])x.classList.add("ok");});
+            fb.className="fb show ng";fb.innerHTML=`<span class="mark">ざんねん。</span>答えは「${d.c[d.a]}」。${d.e}`;rt.className="retry show";}
+          addRuby(fb); addRuby(box); upd();
+        });
+        box.appendChild(b);
+      });
+      addRuby(box);
+    }
+    rt.addEventListener("click",render);
+    render(); host.appendChild(q);
+  });
+}
+
+/* ===================== 1：言いかえ ===================== */
+const pairsEl=document.getElementById("pairs");
+PAIRS.forEach(p=>{
+  const d=document.createElement("div"); d.className="pair "+p.c;
+  d.innerHTML=`<div class="row"><div class="w t"><small>教科書</small>${p.t}</div><div class="eq">＝</div><div class="w s"><small>テスト・ほかの言い方</small>${p.s}</div></div><div class="mean"><span class="pg">${p.p}</span>${p.m}</div>`;
+  pairsEl.appendChild(d);
+});
+buildQuiz(document.getElementById("quizA"),QA,"A",false);
+const flipsEl=document.getElementById("flips");
+FLIPS.forEach(f=>{
+  const b=document.createElement("button"); b.type="button"; b.className="flip"; b.setAttribute("aria-pressed","false");
+  b.innerHTML=`<div class="in"><div class="f"><div class="word">${f[0]}</div><div class="tap">タップで いみを 見る</div></div><div class="b"><b>${f[0]}（${f[2]}）</b>${f[1]}</div></div>`;
+  b.addEventListener("click",()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true"));
+  flipsEl.appendChild(b);
+});
+
+/* ===================== 2：路線図 ===================== */
+(function(){
+  const svg=document.getElementById("map"); const NS="http://www.w3.org/2000/svg";
+  const C={o:"#E0632A",b:"#2F6DB5",s:"#8A5A33",g:"#2E9A5B",ink:"#1F2A36"};
+  const Y={o:100,b:200,s:300,g:410};
+  function el(t,a,parent){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(parent||svg).appendChild(e);return e;}
+  function line(pts,col,dash){el("polyline",{points:pts.map(p=>p.join(",")).join(" "),fill:"none",stroke:col,"stroke-width":dash?5:14,"stroke-linecap":"round","stroke-linejoin":"round","stroke-dasharray":dash?"10 8":"none"});}
+  /* terminal */
+  el("rect",{x:880,y:62,width:190,height:268,rx:22,fill:"#FFF6CC",stroke:C.ink,"stroke-width":3});
+  /* lines */
+  line([[70,Y.o],[880,Y.o]],C.o);
+  line([[640,Y.o],[740,40],[760,40]],C.o);
+  line([[70,Y.b],[880,Y.b]],C.b);
+  line([[70,Y.s],[880,Y.s]],C.s);
+  line([[440,Y.s],[520,Y.g]],C.s);
+  line([[70,Y.g],[1010,Y.g]],C.g);
+  line([[440,Y.b],[440,Y.o]],C.b,true);
+  line([[440,Y.s],[560,Y.o]],C.s,true);
+  /* small labels */
+  const lab=(x,y,t,o)=>{const e=el("text",Object.assign({x,y,"font-size":13,fill:"#4A5866","font-family":"BIZ UDPGothic, sans-serif"},o||{}));e.textContent=t;return e;};
+  lab(430,156,"まざっていた もやすごみ",{"text-anchor":"end"});
+  lab(510,262,"もやすものは 清掃工場へ");
+  lab(530,372,"鉄・アルミ",{});
+  /* line names */
+  [["もやすごみ線",Y.o+34,C.o],["もやさないごみ線",Y.b+34,C.b],["粗大ごみ線",Y.s+34,C.s],["資源線",Y.g-24,C.g]].forEach(([t,y,c])=>{const e=el("text",{x:92,y:y,"font-size":14,"font-weight":700,fill:c,"font-family":"Zen Maru Gothic, sans-serif"});e.textContent=t;});
+  const tt=el("text",{x:975,y:100+0,"text-anchor":"middle","font-size":18,"font-weight":900,fill:C.ink,"font-family":"Zen Maru Gothic, sans-serif"});
+  /* stations */
+  const S=[
+    ["home1",70,Y.o,C.o,"家",-1],["car",230,Y.o,C.o,"収集車",-1],["seiso",440,Y.o,C.o,"清掃工場",-1],["hai",640,Y.o,C.o,"灰",1],["cement",770,40,C.o,"セメントの原料",-2],
+    ["home2",70,Y.b,C.b,"家",-1],["car",230,Y.b,C.b,"収集車",-1],["funen",440,Y.b,C.b,"不燃ごみ処理センター",3],
+    ["home3",70,Y.s,C.s,"申しこみ",-1],["car",230,Y.s,C.s,"収集車",-1],["sodai",440,Y.s,C.s,"粗大ごみ処理しせつ",3],
+    ["home4",70,Y.g,C.g,"家・回収箱",1],["car",230,Y.g,C.g,"収集車",1],["kaishu",400,Y.g,C.g,"回収しせつ",1],["genryo",660,Y.g,C.g,"原料に変える工場",1],["seihin",1010,Y.g,C.g,"新しい製品",1]
+  ];
+  S.forEach(([k,x,y,c,name,pos])=>{
+    const g=el("g",{class:"st",tabindex:0,role:"button","aria-label":name,"data-k":k});
+    el("circle",{class:"dot",cx:x,cy:y,r:13,fill:"#fff",stroke:c,"stroke-width":5},g);
+    let ty=(pos===1||pos===3)?y+36:(pos===-2?y+6:y-24); let tx=pos===-2?x+20:(pos===3?x+8:x); let anchor=pos===-2?"start":(pos===3?"end":"middle");
+    const t=el("text",{x:tx,y:ty,"text-anchor":anchor,"font-size":16,"font-weight":700,fill:C.ink,"font-family":"BIZ UDPGothic, sans-serif"},g); t.textContent=name;
+    g.addEventListener("click",()=>pick(k,g)); g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(k,g);}});
+  });
+  /* terminal station */
+  const g=el("g",{class:"st",tabindex:0,role:"button","aria-label":"うめ立て処分場","data-k":"umetate"});
+  el("circle",{class:"dot",cx:975,cy:200,r:20,fill:"#fff",stroke:C.ink,"stroke-width":6},g);
+  [["うめ立て",140],["処分場",164],["（最終処分場）",250],["ごみの終点",276]].forEach(([t,y],i)=>{const e=el("text",{x:975,y,"text-anchor":"middle","font-size":i<2?20:14,"font-weight":i<2?900:700,fill:i===3?"#C23B22":C.ink,"font-family":"Zen Maru Gothic, sans-serif"},g);e.textContent=t;});
+  g.addEventListener("click",()=>pick("umetate",g)); g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick("umetate",g);}});
+  tt.remove();
+  function pick(k,g){
+    svg.querySelectorAll(".st").forEach(x=>x.classList.remove("sel")); svg.querySelectorAll(`.st[data-k="${k}"]`).forEach(x=>x.classList.add("sel"));
+    const s=ST[k]; const info=document.getElementById("info");
+    info.innerHTML=`<h4>${s.n}${s.alt?`<span class="alt">${s.alt}</span>`:""}</h4><p>${s.d}</p><p class="pg">教科書 ${s.p}</p>`;
+    addRuby(info);
+  }
+})();
+buildQuiz(document.getElementById("quizB"),QB,"B",false);
+
+/* ===================== 3：一問一答 ===================== */
+buildQuiz(document.getElementById("quizC"),QC,"C",true);
+(function(){
+  const groups=[["すべて",null],["分別・収集 p.30〜35",["p.31","p.34","p.35"]],["清掃工場 p.36〜37",["p.36","p.37"]],["うめ立て処分場 p.38〜39",["p.38","p.39"]],["資源・リサイクル p.40〜41",["p.40","p.41"]],["3R・地域 p.44〜47",["p.44","p.45","p.46","p.47"]]];
+  const f=document.getElementById("filt");
+  groups.forEach(([t,ps],i)=>{const b=document.createElement("button");b.type="button";b.textContent=t;b.setAttribute("aria-pressed",i===0?"true":"false");
+    b.addEventListener("click",()=>{f.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");
+      document.querySelectorAll("#quizC .q").forEach(q=>{q.style.display=(!ps||ps.includes(q.dataset.page))?"":"none";});});
+    f.appendChild(b);});
+})();
+
+/* ===================== 4：考える問題 ===================== */
+const TH=document.getElementById("thinks");
+function card(num,title,tags,src){
+  const d=document.createElement("div"); d.className="think";
+  d.innerHTML=`<div class="th"><div class="big">${num}</div><div><h3>${title}</h3><div class="steps" style="margin:4px 0 0">${tags.map(t=>`<span class="tag${t.startsWith("テスト")?" test":""}">${t}</span>`).join("")}</div></div></div><div class="body"><p class="src">${src}</p></div>`;
+  TH.appendChild(d); return d.querySelector(".body");
+}
+function hints(body,hs,model,points){
+  const st=document.createElement("div"); st.className="steps"; body.appendChild(st);
+  const boxes=hs.map((h,i)=>{const x=document.createElement("div");x.className="hint";x.innerHTML=`<b>ヒント${i+1}：</b>${h}`;return x;});
+  hs.forEach((h,i)=>{const b=document.createElement("button");b.type="button";b.className="hbtn";b.textContent="ヒント"+(i+1);if(i>0)b.disabled=true;
+    b.addEventListener("click",()=>{boxes[i].classList.add("show");b.disabled=true;const n=st.children[i+1];if(n)n.disabled=false;});st.appendChild(b);});
+  const ab=document.createElement("button");ab.type="button";ab.className="hbtn ans";ab.textContent="答えの れいを 見る";st.appendChild(ab);
+  boxes.forEach(x=>body.appendChild(x));
+  const m=document.createElement("div");m.className="model";m.innerHTML=`<b class="l">答えの れい</b>${model}${points?`<ul>${points.map(p=>`<li>${p}</li>`).join("")}</ul>`:""}`;
+  ab.addEventListener("click",()=>{m.classList.add("show");});
+  return m;
+}
+function writeArea(body,frames,kws,id){
+  total++;
+  const fr=document.createElement("div");fr.className="frames";
+  const ta=document.createElement("textarea");ta.placeholder="ここに 書こう（ノートに 書いても いいよ）";ta.setAttribute("aria-label","答えを書くところ");
+  frames.forEach(f=>{const b=document.createElement("button");b.type="button";b.textContent="書き出し：「"+f+"…」";b.addEventListener("click",()=>{ta.value=f+ta.value;ta.focus();chk();});fr.appendChild(b);});
+  body.appendChild(fr); body.appendChild(ta);
+  const kw=document.createElement("div");kw.className="kw";kw.innerHTML=`<span class="kwmsg noR">入っているかな？</span>`;
+  const chips=kws.map(k=>{const s=document.createElement("span");s.className="k";s.textContent=k.l;kw.appendChild(s);return s;});
+  const end=document.createElement("span");end.className="k";end.textContent="「から」「ため」で おわる";kw.appendChild(end);
+  body.appendChild(kw);
+  const msg=document.createElement("div");msg.className="kwmsg";body.appendChild(msg);
+  function chk(){
+    const v=ta.value.replace(/\s/g,""); let n=0;
+    kws.forEach((k,i)=>{const hit=k.w.some(w=>v.includes(w));chips[i].classList.toggle("hit",hit);if(hit)n++;});
+    const e=/(から|ため)[。．]?$/.test(v); end.classList.toggle("hit",e);
+    if(!v){msg.textContent="";return;}
+    if(n===kws.length&&e){msg.textContent="キーワードが そろったよ！ 声に出して 読み直し、文が つながっているか たしかめよう。";done.add(id);}
+    else msg.textContent="あと "+(kws.length-n+(e?0:1))+" こ。ヒントを 見ても いいよ。";
+    upd();
+  }
+  ta.addEventListener("input",chk);
+}
+
+/* --- 1 うつり変わり（テスト3（1）） --- */
+(function(){
+  const b=card("1","ごみ処理の うつり変わり：どの ころの こと？",["テスト うら 3（1）","教科書 p.35"],"教科書35ページの 3まいの 絵を 見て、下の 文が ①〜③の どの ころの ことか えらぼう。");
+  b.insertAdjacentHTML("beforeend",`<div class="era"><div><b>① 約70年前</b>庭や 空き地で もやしたり、あなを ほって うめたりした。</div><div><b>② 約60年前</b>ごみが ふえ、トラックなどで 集めて 処理するように なった。</div><div><b>③ 今</b>ごみを 細かく 分けて 収集し、資源に 変えて ふたたび 利用。</div></div>`);
+  const items=[["ごみの 出る量が 少なかった。","①","テストと 同じ 問題。まだ 人口も ごみも 少なかった ころ。"],["土の中や 地下水が よごれることが あった。","①","うめたり もやしたり したため（p.35）。"],["もやすごみも 資源物も、分けずに まとめて 処理していた。","②","テストと 同じ 問題。集めて 処理は するが、まだ 分別は していない ころ。"],["ごみの量が ふえ、トラックなどで 集めるように なった。","②","p.35 中央の 絵。"],["いろいろな ごみを 資源に 変えて、ふたたび 利用している。","③","今の しくみ。分別と リサイクル。"]];
+  const s=document.createElement("div");s.className="sorter";b.appendChild(s);
+  items.forEach((it,i)=>{total++;const id="E"+i;const r=document.createElement("div");r.className="srow";
+    r.innerHTML=`<div class="txt">${it[0]}</div><div class="btns"></div><div class="why"></div>`;
+    ["①","②","③"].forEach(o=>{const bt=document.createElement("button");bt.type="button";bt.textContent=o;bt.addEventListener("click",()=>{
+      r.querySelectorAll("button").forEach(x=>x.classList.remove("pick"));bt.classList.add("pick");
+      const ok=o===it[1];r.className="srow "+(ok?"ok":"ng");r.querySelector(".why").innerHTML=(ok?"せいかい！ ":"もう一度。答えは "+it[1]+"。 ")+it[2];if(ok)done.add(id);else done.delete(id);addRuby(r.querySelector(".why"));upd();});r.querySelector(".btns").appendChild(bt);});
+    s.appendChild(r);});
+})();
+
+/* --- 2 変わったわけ（テスト3（2）） --- */
+(function(){
+  const b=card("2","ごみ処理の しかたが 変わってきたのは なぜ？",["テスト うら 3（2）","教科書 p.35"],"正しい 文を <b>2つ</b> えらんで「答え合わせ」を おそう。そのあと、理由を 文で 書いてみよう。");
+  total++;
+  const opts=[["人口が ふえ、ごみの量も しゅるいも ふえて、それまでの 方法では 処理しきれなく なったから。",true],["庭で もやすのは 時間が かかって めんどうだから。",false],["もやしたり うめたりして、土や 地下水が よごれ、人々の 健康が そこなわれることが あったから。",true],["区に たのむほうが、お金が かからないから。",false]];
+  const box=document.createElement("div");box.className="choices multi";box.style.marginLeft="0";b.appendChild(box);
+  const btns=opts.map(o=>{const x=document.createElement("button");x.type="button";x.className="ch";x.textContent=o[0];x.setAttribute("aria-pressed","false");x.addEventListener("click",()=>x.setAttribute("aria-pressed",x.getAttribute("aria-pressed")==="true"?"false":"true"));box.appendChild(x);return x;});
+  const c=document.createElement("button");c.type="button";c.className="check";c.textContent="答え合わせ";b.appendChild(c);
+  const fb=document.createElement("div");fb.className="fb";fb.style.marginLeft="0";b.appendChild(fb);
+  c.addEventListener("click",()=>{let ok=true,cnt=0;btns.forEach((x,i)=>{const p=x.getAttribute("aria-pressed")==="true";if(p)cnt++;x.classList.remove("ok","ng");if(opts[i][1])x.classList.add("ok");else if(p)x.classList.add("ng");if(p!==opts[i][1])ok=false;});
+    fb.className="fb show "+(ok?"ok":"ng");fb.innerHTML=ok?`<span class="mark">せいかい！</span>人口と ごみの ふえ方、そして 健康や かんきょうへの えいきょうが 理由。（甘利さんの話 p.35）`:`<span class="mark">${cnt!==2?"2つ えらぼう。":"おしい。"}</span>緑に なった 2つが 正しい 文。「めんどう」「お金が かからない」は 教科書に 書かれていない 理由。`;
+    if(ok)done.add("M1");addRuby(fb);upd();});
+  b.insertAdjacentHTML("beforeend",`<p class="src" style="margin-top:14px"><b>書いてみよう：</b>区が 収集車で 集めて、清掃工場や うめ立て処分場で 処理する しくみを つくったのは なぜですか。</p>`);
+  writeArea(b,["人口がふえて、","ごみの量がふえて、"],[{l:"ふえた",w:["ふえ","増え"]},{l:"健康・よごれ",w:["健康","けんこう","よごれ","汚れ"]}],"W1");
+  hints(b,["教科書35ページの「環境清掃部の甘利さんの話」を 読もう。","「人口が ○○、ごみの量も しゅるいも ○○」「人々の ○○が そこなわれた」の ○○に 入る ことばは？","人口が ふえて ごみの量や しゅるいが ふえ、それまでの 方法では 処理しきれなく なり、人々の 健康が …"],
+   "人口が ふえ、ごみの量も しゅるいも ふえて、それまでの 方法では 処理しきれなく なったから。また、土や 地下水が よごれ、人々の 健康が そこなわれることが あったから。",
+   ["○になる ポイント：「ふえた」こと と「健康・かんきょう」のことが 書けている。","どちらか 一つが 書けていれば まずは OK。"]);
+})();
+
+/* --- 3 リサイクルは何のため（テスト3（3）） --- */
+(function(){
+  const b=card("3","ごみを 資源として リサイクルするのは 何のため？",["テスト うら 3（3）表現力","教科書 p.39・41・44"],"テストの 答えの れいは「ごみを へらすため」。<b>もう一歩 くわしく</b>、うめ立て処分場の ことも 入れて 書いてみよう。");
+  writeArea(b,["ごみをへらして、","資源をむだにしないで、"],[{l:"へらす",w:["へら","減ら","へる","減る"]},{l:"処分場",w:["処分場","しょぶんじょう","うめ立て","埋め立て"]}],"W2");
+  hints(b,["教科書39ページ（処分場が いっぱいに なる 問題）と、44ページの 甘利さんの話を 読もう。","「ごみの量が へれば、清掃工場や うめ立て処分場を より ○○ 使い続けることが できます。」（p.44）","ごみを へらして、うめ立て処分場を …"],
+   "ごみを へらして、うめ立て処分場を 長く 使い続けられるように するため。また、資源を むだにせず、新しい 製品の 原料として ふたたび 使うため。",
+   ["テストでは「ごみを へらすため。」だけでも ○。","「処分場を 長く 使う」「資源を むだにしない」まで 書けたら 二重まる。"]);
+})();
+
+/* --- 4 なぜ分別 --- */
+(function(){
+  const b=card("4","ごみを 分別して 出すのは なぜ？",["教科書 p.34・40"],"「きまりだから」では なく、<b>分別しないと 何が こまるのか</b> を 考えて 書こう。");
+  writeArea(b,["ごみのしゅるいによって、"],[{l:"処理のしかた",w:["処理","しょり"]},{l:"ちがう",w:["ちが","違"]}],"W3");
+  hints(b,["教科書34ページ「環境清掃部の甘利さんの話」の 後半を 読もう。路線図（タブ2）で、ごみの しゅるいごとに 行き先が ちがったね。","「ごみの しゅるいによって、○○の しかたが ○○ため」","ごみの しゅるいによって 処理の しかたや 運ばれる しせつが ちがう ため。また、資源に まざりものが あると …"],
+   "ごみの しゅるいによって、処理の しかたや 運ばれる しせつが ちがうから。きちんと 分別すると、資源は リサイクルされ、うめ立て処分場に うめる ごみも へらせるから。",
+   ["回収しせつでは まざりものを 手作業で 取りのぞいている（p.40）＝分別しないと 手間が ふえる、も よい 理由。"]);
+})();
+
+/* --- 5 灰をセメントに --- */
+(function(){
+  const b=card("5","もやしたあとの 灰を、セメントの 原料に するのは なぜ？",["教科書 p.38〜39"],"黒野さんの話と、39ページの 子どもたちの 会話が ヒント。");
+  writeArea(b,["うめる量をへらして、"],[{l:"へらす",w:["へら","減ら"]},{l:"長く使う",w:["長く","ながく"]}],"W4");
+  hints(b,["教科書38ページ「うめ立て処分場で働く黒野さんの話」と、39ページの グラフ オ を 見よう。グラフは ふえている？ へっている？","「灰で セメントを つくるのは、処分場を ○○ 使い続けるための くふう」（p.39）","処分場に うめる量を へらして、…"],
+   "処分場に うめる 灰の量を へらして、うめ立て処分場を できるだけ 長く 使い続けられるように するため。",
+   ["グラフ オ では、うめられた 灰と もやさないごみの 量が へってきている。"]);
+})();
+
+/* --- 6 グラフ2つ --- */
+(function(){
+  const b=card("6","ごみの量は へったのに、資源の 処理の 費用が ふえたのは なぜ？",["グラフを 読む","教科書 p.44〜45"],"グラフ ア（ごみの量）・イ（ごみ処理の 費用）・ウ（資源処理の 費用）を ならべて 見よう。");
+  b.insertAdjacentHTML("beforeend",`<div class="era"><div><b>グラフ ア</b>一人当たりの ごみの量 → へっている</div><div><b>グラフ イ</b>ごみ処理の 費用 → へってきている</div><div><b>グラフ ウ</b>資源処理の 費用 → ふえている</div></div>`);
+  writeArea(b,["資源のしゅるいがふえて、"],[{l:"しゅるいが ふえた",w:["種類","しゅるい"]},{l:"かんきょう",w:["環境","かんきょう"]}],"W5");
+  hints(b,["「回収しせつで働く張替さんの話」（p.45）を 読もう。「資源の 回収量が ふえたから」は 正しい？","「資源の ○○が ふえたり、より ○○を 守りながら 処理するように なったり」","資源の しゅるいが ふえたり、かんきょうを 守りながら 処理するように なったり …"],
+   "リサイクルできる 資源の しゅるいが ふえたり、より かんきょうを 守りながら 処理するように なったりしたから。（資源の 回収量は あまり ふえていない）",
+   ["だから 張替さんは、リサイクルより「リデュース」「リユース」を 大切に してほしいと 話している。","まちがえやすい：「資源の 回収量が ふえたから」は ✕。"]);
+})();
+
+/* --- 7 3R なかま分け（いかそう社会） --- */
+(function(){
+  const b=card("7","3R なかま分け：どの R？",["テスト うら いかそう社会","教科書 p.45"],"<b>リデュース</b>＝ごみ そのものを へらす　<b>リユース</b>＝くり返し 使う　<b>リサイクル</b>＝資源を 原料に 変えて 再利用");
+  const items=[["つめかえ用の 商品を 買う","リデュース","入れ物の ごみが 出ない。テストの れい。"],["買い物に マイバッグを 持っていく","リデュース","レジぶくろの ごみを へらす（p.46）。"],["買う前に、本当に 必要か 考える","リデュース","よけいな ものを 買わなければ ごみに ならない（p.49）。"],["フリーマーケットで 古着を 売り買いする","リユース","服を ほかの人が また 使う。テストの れい。"],["読み終わった 本を 古本屋に 売る","リユース","本は 形を 変えずに また 読まれる。"],["飲み物の びんを あらって 何回も 使う","リユース","びんを そのまま くり返し 使う。"],["資源物の 回収に 協力する","リサイクル","資源が 原料に もどる。テストの れい。"],["ペットボトルを 分別して 出す","リサイクル","プラスチック製品の 原料に なる。"],["再生紙で つくった ノートを 使う","リサイクル","リサイクルで できた 製品を 使う。"]];
+  const s=document.createElement("div");s.className="sorter";b.appendChild(s);
+  items.forEach((it,i)=>{total++;const id="R"+i;const r=document.createElement("div");r.className="srow";
+    r.innerHTML=`<div class="txt">${it[0]}</div><div class="btns"></div><div class="why"></div>`;
+    ["リデュース","リユース","リサイクル"].forEach(o=>{const bt=document.createElement("button");bt.type="button";bt.textContent=o;bt.addEventListener("click",()=>{
+      r.querySelectorAll("button").forEach(x=>x.classList.remove("pick"));bt.classList.add("pick");const ok=o===it[1];r.className="srow "+(ok?"ok":"ng");
+      r.querySelector(".why").innerHTML=(ok?"せいかい！ ":"答えは "+it[1]+"。 ")+it[2];if(ok)done.add(id);else done.delete(id);addRuby(r.querySelector(".why"));upd();});r.querySelector(".btns").appendChild(bt);});
+    s.appendChild(r);});
+})();
+
+/* --- 8 自分にできること --- */
+(function(){
+  const b=card("8","ごみを へらすために、自分に できることは？ どの R？",["テスト うら いかそう社会（1）（2）","教科書 p.48〜49"],"できることを 1つ 書き、<b>なぜなら〜から</b> で 理由も 書こう。最後に どの R か えらぼう。");
+  writeArea(b,["わたしは、","ぼくは、"],[{l:"なぜなら",w:["なぜなら","なぜかというと"]}],"W6");
+  const sel=document.createElement("div");sel.style.marginTop="8px";sel.innerHTML=`<label>これは どの R？　<select><option value="">えらぶ</option><option>リデュース</option><option>リユース</option><option>リサイクル</option></select></label>`;b.appendChild(sel);
+  hints(b,["教科書49ページの 4人の 発言を 読もう。7の なかま分けの カードも ヒントに なるよ。","「わたしは ○○しようと 思います。なぜなら ○○から です。」","わたしは、買い物に マイバッグを 持っていこうと 思います。なぜなら、…"],
+   "わたしは、買い物に マイバッグを 持っていこうと 思います。なぜなら、レジぶくろの ごみを へらすことが できるからです。（リデュース）",
+   ["ほかの れい：資源は よごれを 落としてから 出す（リサイクル）／読み終わった 本を ゆずる（リユース）／本当に 必要か 考えてから 買う（リデュース）"]);
+})();
+
+/* ===================== 仕上げ ===================== */
+addRuby(document.body); upd();
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected","false"));t.setAttribute("aria-selected","true");
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id===t.dataset.p));
+  window.scrollTo({top:document.querySelector("nav.tabs").offsetTop,behavior:"smooth"});
+}));
+const tR=document.getElementById("tRuby"),tB=document.getElementById("tBig"),tS=document.getElementById("tSay");
+tR.addEventListener("click",()=>{const on=tR.getAttribute("aria-pressed")!=="true";tR.setAttribute("aria-pressed",on);document.body.classList.toggle("noruby",!on);});
+tB.addEventListener("click",()=>{const on=tB.getAttribute("aria-pressed")!=="true";tB.setAttribute("aria-pressed",on);document.documentElement.style.setProperty("--fs",on?"20px":"");});
+tS.addEventListener("click",()=>{const on=tS.getAttribute("aria-pressed")!=="true";tS.setAttribute("aria-pressed",on);document.querySelectorAll(".say").forEach(x=>x.style.display=on?"":"none");});
+if(!("speechSynthesis" in window)){tS.style.display="none";document.querySelectorAll(".say").forEach(x=>x.style.display="none");}
 </script>
 </body>
 </html>
